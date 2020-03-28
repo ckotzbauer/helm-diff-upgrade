@@ -1,13 +1,15 @@
 #!/bin/bash
-set -euo pipefail
 
 doUpgrade() {
     helm upgrade -i $@
 }
 
-./diff upgrade -C 3 $@
+DIR=$(dirname "${BASH_SOURCE[0]}")
+$DIR/diff upgrade -C 3 $@
 
-if [ "$HELM_FORCE_DIFF_UPGRADE" = "1" ]
+force="${HELM_FORCE_DIFF_UPGRADE:-0}"
+
+if [ "$force" = "1" ]
 then
     doUpgrade $@
     exit $?

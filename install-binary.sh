@@ -1,5 +1,4 @@
 #!/bin/bash
-set -euo pipefail
 
 on_exit() {
     exit_code=$?
