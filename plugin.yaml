@@ -5,5 +5,5 @@ description: "Upgrade helm releases with a preview diff"
 useTunnel: true
 command: "bash $HELM_PLUGIN_DIR/bin/diff-upgrade.sh"
 hooks:
-  install: "$HELM_PLUGIN_DIR/install-binary.sh"
-  update: "$HELM_PLUGIN_DIR/install-binary.sh"
+  install: "cd $HELM_PLUGIN_DIR; bash install-binary.sh"
+  update: "cd $HELM_PLUGIN_DIR; bash install-binary.sh"

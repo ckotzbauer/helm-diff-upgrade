@@ -55,6 +55,8 @@ else
     exit 1
 fi
 
+echo "Downloading and installing helm-diff ${latest_diff} ..."
+
 diff_url=""
 if [ "$(uname)" == "Darwin" ]; then
     diff_url="https://github.com/databus23/helm-diff/releases/download/${latest_diff}/helm-diff-macos.tgz"
@@ -68,6 +70,8 @@ if [ -z "${diff_url}" ]; then
 fi
 
 diff_filename="releases/${latest_diff}.tgz"
+mkdir -p "releases/${latest_diff}"
+
 (
     if [ -x "$(which curl 2>/dev/null)" ]; then
         curl -sSL "${diff_url}" -o "${diff_filename}"
