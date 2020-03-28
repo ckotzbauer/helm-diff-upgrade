@@ -84,6 +84,6 @@ mkdir -p "releases/${latest_diff}"
 )
 
 tar xzf "${diff_filename}" -C "releases/${latest_diff}"
-mv "releases/${latest_diff}/bin/diff" "bin/diff"
+mv "releases/${latest_diff}/diff/bin/diff" "bin/diff"
 
 exit 0
