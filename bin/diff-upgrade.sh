@@ -5,9 +5,15 @@ doUpgrade() {
 }
 
 DIR=$(dirname "${BASH_SOURCE[0]}")
-$DIR/diff upgrade -C 3 $@
+EXIT_CODE=$($DIR/diff upgrade -C 3 --detailed-exitcode $@)
 
 force="${HELM_FORCE_DIFF_UPGRADE:-0}"
+
+if [ "$EXIT_CODE" = "0" ]
+then
+    echo "No changes detected!"
+    exit 0
+fi
 
 if [ "$force" = "1" ]
 then
