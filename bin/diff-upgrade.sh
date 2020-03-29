@@ -5,7 +5,8 @@ doUpgrade() {
 }
 
 DIR=$(dirname "${BASH_SOURCE[0]}")
-EXIT_CODE=$($DIR/diff upgrade -C 3 --detailed-exitcode $@)
+$DIR/diff upgrade -C 3 --detailed-exitcode $@
+EXIT_CODE=$?
 
 force="${HELM_FORCE_DIFF_UPGRADE:-0}"
 

@@ -1,9 +1,9 @@
 name: "diff-upgrade"
-version: "0.1.1"
+version: "0.1.2"
 usage: "Upgrade helm releases with a preview diff"
 description: "Upgrade helm releases with a preview diff"
 useTunnel: true
-command: "bash $HELM_PLUGIN_DIR/bin/diff-upgrade.sh"
+command: "bash $HELM_PLUGIN_DIR/bin/diff-upgrade"
 hooks:
   install: "cd $HELM_PLUGIN_DIR; bash install-binary.sh"
   update: "cd $HELM_PLUGIN_DIR; bash install-binary.sh"
