@@ -1,5 +1,7 @@
 #!/bin/bash
 
+force="${HELM_FORCE_DIFF_UPGRADE:-0}"
+
 doUpgrade() {
     helm upgrade -i $@
 }
@@ -7,8 +9,6 @@ doUpgrade() {
 DIR=$(dirname "${BASH_SOURCE[0]}")
 $DIR/diff upgrade -C 3 --detailed-exitcode $@
 EXIT_CODE=$?
-
-force="${HELM_FORCE_DIFF_UPGRADE:-0}"
 
 if [ "$EXIT_CODE" = "0" ]
 then

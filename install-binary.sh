@@ -14,7 +14,7 @@ echo "Downloading and installing helm-diff-upgrade ${version} ..."
 
 binary_url=""
 if [ "$(uname)" == "Darwin" ] || [ "$(uname)" == "Linux" ]; then
-    binary_url="https://github.com/code-chris/helm-diff-upgrade/releases/download/${version}/helm-diff-upgrade.sh"
+    binary_url="https://raw.githubusercontent.com/code-chris/helm-diff-upgrade/${version}/bin/diff-upgrade.sh"
 fi
 
 if [ -z "${binary_url}" ]; then
